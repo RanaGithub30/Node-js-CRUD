@@ -8,12 +8,19 @@ const morgan = require('morgan');
 const router = express.Router();
 const fs = require('node:fs');
 
+
+// db connection file
+const connectDB = require('./server/database/connection')
+
 // declare port
 dotenv.config( {path: 'config.env'} )
 const PORT = process.env.PORT || 8080
 
 // log requests
 app.use(morgan('tiny'));
+
+// mongodb connection 
+connectDB();
 
 // parse request to body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
