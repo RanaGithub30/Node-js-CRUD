@@ -18,7 +18,7 @@
           </div>
           <ul class="nav navbar-nav">
             <li class=""><a href="/">Home</a></li>
-            <li><a href="/create">Create</a></li>
+            <li><a href="/create">Add New User</a></li>
           </ul>
         </div>
       </nav>
@@ -26,7 +26,7 @@
 
       <div class="container">
         <h2>User's form</h2>
-        <form action="#">
+        <form action="#" method="post" id="add_user">
             <div class="form-group">
                 <label for="fname">First Name</label>
                 <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name">

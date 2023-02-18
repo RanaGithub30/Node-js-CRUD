@@ -24,25 +24,7 @@ app.use('/img', express.static(path.resolve(__dirname, "assets/img")))
 app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 
 
-// routes..
-const page_prexif = '/views/pages/';
-
-app.get('/', (req, res) => {
-    res.statusCode = 200;
-    const data = fs.readFileSync(__dirname+page_prexif+'/home.php');
-    res.end(data.toString());
-})
-
-app.get('/create', (req, res) => {
-    res.statusCode = 200;
-    const data = fs.readFileSync(__dirname+page_prexif+'/create.php');
-    res.end(data.toString());
-})
-
-app.get('/details', (req, res) => {
-    res.statusCode = 200;
-    const data = fs.readFileSync(__dirname+page_prexif+'/details.php');
-    res.end(data.toString());
-})
+// load Routers
+app.use('/', require('./server/routes/router'))
 
 app.listen(PORT, ()=>{ console.log("Server is running on port : 3000" ) })
