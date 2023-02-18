@@ -48,7 +48,7 @@
               </div>
 
               <div class="form-group">
-                <label for="address">Last Name</label>
+                <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address">
               </div>
 
