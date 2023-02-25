@@ -34,15 +34,39 @@ exports.create = (req, res) => {
 
 // retrive and return all user/ return a single user
 exports.find = (req, res) => {
+    
+    // To find a specific user from db
+    if(req.query.id){
+        const id = req.query.id;
+        
+        userdb.findById(id)
+        .then(data => {
+            if(!data){
+                res.status(404).send({ message: "Cann't find user.. Maybe, User not found"})   
+            }else{
+                res.send(data)
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+               message: err.message || "Some error occured while Retriving User Information"
+            });
+        }); 
+    }
+
+    // To find all user's lists from db
+    else{
     userdb.find()
     .then(user => {
         res.send(user)
     })  
+
     .catch(err => {
         res.status(500).send({
            message: err.message || "Some error occured while Retriving User Information"
         });
-    });  
+    }); 
+  } 
 }
 
 // update a user by user id
